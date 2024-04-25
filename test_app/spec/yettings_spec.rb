@@ -35,11 +35,11 @@ describe Yettings do
   end
 
   it "should find 3 yettings dir files if there is no main file" do
-    FileUtils.mv("#{YETTING_FILE}","#{YETTING_FILE}_tmp") if File.exists?("#{YETTING_FILE}")
+    FileUtils.mv("#{YETTING_FILE}","#{YETTING_FILE}_tmp") if File.exist?("#{YETTING_FILE}")
     Yettings.find_ymls.should eq ["#{Rails.root}/config/yettings/blank.yml",
                                   "#{Rails.root}/config/yettings/hendrix.yml",
                                   "#{Rails.root}/config/yettings/jimi.yml"]
-    FileUtils.mv("#{YETTING_FILE}_tmp","#{YETTING_FILE}") if File.exists?("#{YETTING_FILE}_tmp")
+    FileUtils.mv("#{YETTING_FILE}_tmp","#{YETTING_FILE}") if File.exist?("#{YETTING_FILE}_tmp")
   end
 
   it "should load the yml and return hash" do
